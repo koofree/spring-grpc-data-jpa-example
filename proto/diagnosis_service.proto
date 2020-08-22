@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "com.example.demo.rpc";
+option java_multiple_files = true;
+
+service DiagnosisService {
+    rpc GetDiagnosis (GetDiagnosisRequest) returns (GetDiagnosisResponse);
+}
+
+message GetDiagnosisRequest {
+    int32 questionCount = 1;
+}
+
+message GetDiagnosisResponse {
+    repeated Question questions = 1;
+}
+
+message Question {
+    string question = 1;
+    repeated string choices = 2;
+}
